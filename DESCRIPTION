@@ -7,7 +7,7 @@ Description: Client for World Register of Marine Species
     common names, searching using external identifiers, fetching
     synonyms, as well as fetching taxonomic children and 
     taxonomic classification.
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
@@ -15,12 +15,13 @@ URL: https://github.com/ropensci/worrms
 BugReports: https://github.com/ropensci/worrms/issues
 LazyData: true
 VignetteBuilder: knitr
-Imports: crul (>= 0.2.0), tibble (>= 1.2), jsonlite (>= 1.1)
-Suggests: roxygen2 (>= 5.0.1), knitr, rmarkdown, testthat, covr
-RoxygenNote: 5.0.1
+Imports: crul (>= 0.3.6), tibble (>= 1.2), jsonlite (>= 1.1),
+        data.table
+Suggests: roxygen2 (>= 6.0.1), knitr, testthat
+RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-01-13 20:56:33 UTC; sacmac
+Packaged: 2017-08-24 21:29:00 UTC; sacmac
 Author: Scott Chamberlain [aut, cre]
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
 Repository: CRAN
-Date/Publication: 2017-01-14 12:46:41
+Date/Publication: 2017-08-24 21:50:15 UTC

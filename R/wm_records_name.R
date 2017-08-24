@@ -1,17 +1,21 @@
 #' Get records by single name, optional fuzzy matching
 #'
 #' @export
-#' @param name (character) start date. required.
-#' @param fuzzy (logical) fuzzy search. default: \code{TRUE}
-#' @param marine_only (logical) marine only or not. default: \code{TRUE}
+#' @param name (character) a taxonomic name, required.
+#' @param fuzzy (logical) fuzzy search. default: `TRUE`
+#' @param marine_only (logical) marine only or not. default: `TRUE`
 #' @param offset (integer) record to start at. default: 1
 #' @template curl
-#' @examples
+#' @note there is no underscore method like other functions in this package
+#' as there is already a plural version: [wm_records_names()]
+#' @return A tibble/data.frame
+#' @examples \dontrun{
 #' wm_records_name(name = 'Platanista gangetica')
 #' wm_records_name(name = 'Platanista gangetica', fuzzy = FALSE)
 #' wm_records_name(name = 'Platanista gangetica', marine_only = FALSE)
 #' wm_records_name(name = 'Platanista', marine_only = FALSE)
 #' wm_records_name(name = 'Platanista', marine_only = FALSE, offset = 5)
+#' }
 wm_records_name <- function(name, fuzzy = TRUE, marine_only = TRUE, offset = 1,
                             ...) {
   assert(name, "character")

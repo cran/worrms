@@ -2,19 +2,47 @@
 % Please edit documentation in R/wm_sources.R
 \name{wm_sources}
 \alias{wm_sources}
+\alias{wm_sources_}
 \title{Get sources for an AphiaID}
 \usage{
 wm_sources(id, ...)
+
+wm_sources_(id = NULL, name = NULL, ...)
 }
 \arguments{
-\item{id}{(numeric/integer) an AphiaID. required.}
+\item{id}{(numeric/integer) an AphiaID. For \code{wm_sources} it's required
+and must be \code{length(id) = 1}, for \code{wm_sources_} it's optional and
+can be \code{length(id) >= 1}}
 
 \item{...}{named curl options. see \code{\link[curl]{curl_options}}}
+
+\item{name}{(character) one or more taxonomic names. optional}
+}
+\value{
+A tibble/data.frame. when using underscore method, outputs from
+each input are binded together, but can be split by \code{id} column
 }
 \description{
 Get sources for an AphiaID
 }
-\examples{
-wm_sources(id = 105706)
+\section{Singular vs. plural}{
+
+Of the two sister functions, the one without the underscore is the original
+function that wraps the relavant WoRMS API method - and only accepts
+one thing (i.e., name or AphiaID) per request.
+
+The sister function with the underscore at the end is the plural version,
+accepting more than one input. Internally this function loops over
+the non-underscore method, and labels output (whether it's a list or
+data.frame rows) with the input names or IDs so that you can easily
+parse output by your inputs.
 }
 
+\examples{
+\dontrun{
+wm_sources(id = 105706)
+wm_sources_(id = 105706)
+wm_sources_(id = c(105706, 126436))
+wm_sources_(name = c("Rhincodontidae", "Gadus morhua"))
+}
+}

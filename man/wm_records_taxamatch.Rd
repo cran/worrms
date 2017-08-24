@@ -14,9 +14,16 @@ wm_records_taxamatch(name, marine_only = TRUE, ...)
 
 \item{...}{named curl options. see \code{\link[curl]{curl_options}}}
 }
+\value{
+A list of tibble's/data.frame's, one for each of the input names
+}
 \description{
 Get records for onen or more taxonomic name(s) using
 the TAXAMATCH fuzzy matching algorithm
+}
+\note{
+there is no underscore method like other functions in this package
+as this function already accepts many names
 }
 \examples{
 \dontrun{
@@ -24,4 +31,3 @@ wm_records_taxamatch(name = 'Platanista gangetica')
 wm_records_taxamatch(name = c('Platanista gangetica', 'Coryphaena'))
 }
 }
-

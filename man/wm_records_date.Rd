@@ -18,11 +18,15 @@ wm_records_date(start_date, end_date = NULL, marine_only = TRUE,
 
 \item{...}{named curl options. see \code{\link[curl]{curl_options}}}
 }
+\value{
+A tibble/data.frame
+}
 \description{
 Get records by date
 }
 \examples{
+\dontrun{
 a_date <- format(Sys.Date() - 1, "\%Y-\%m-\%dT\%H:\%M:\%S+00:00")
 wm_records_date(a_date)
 }
-
+}

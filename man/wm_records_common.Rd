@@ -2,12 +2,17 @@
 % Please edit documentation in R/wm_records_common.R
 \name{wm_records_common}
 \alias{wm_records_common}
+\alias{wm_records_common_}
 \title{Get records by vernacular name, optional fuzzy matching}
 \usage{
 wm_records_common(name, fuzzy = FALSE, offset = 1, ...)
+
+wm_records_common_(name, fuzzy = FALSE, offset = 1, ...)
 }
 \arguments{
-\item{name}{(character) a species common name. required.}
+\item{name}{(character) a species common name. required. For
+\code{wm_records_common} must be \code{length(id) = 1}; for \code{wm_records_common_}
+can be \code{length(id) >= 1}}
 
 \item{fuzzy}{(logical) fuzzy search. default: \code{FALSE}}
 
@@ -15,16 +20,34 @@ wm_records_common(name, fuzzy = FALSE, offset = 1, ...)
 
 \item{...}{named curl options. see \code{\link[curl]{curl_options}}}
 }
+\value{
+A tibble/data.frame. when using underscore method, outputs from
+each input are binded together, but can be split by \code{id} column
+}
 \description{
 Get records by vernacular name, optional fuzzy matching
 }
+\section{Singular vs. plural}{
+
+Of the two sister functions, the one without the underscore is the original
+function that wraps the relavant WoRMS API method - and only accepts
+one thing (i.e., name or AphiaID) per request.
+
+The sister function with the underscore at the end is the plural version,
+accepting more than one input. Internally this function loops over
+the non-underscore method, and labels output (whether it's a list or
+data.frame rows) with the input names or IDs so that you can easily
+parse output by your inputs.
+}
+
 \examples{
+\dontrun{
 wm_records_common(name = 'dolphin')
 wm_records_common(name = 'clam')
 
-\dontrun{
+wm_records_common_(name = c('dolphin', 'clam'))
+
 wm_records_common(name = 'dolphin', fuzzy = TRUE)
 wm_records_common(name = 'clam', fuzzy = TRUE, offset = 5)
 }
 }
-
