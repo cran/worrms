@@ -1,13 +1,13 @@
 context("wm_classification")
 
 test_that("wm_classification works", {
-  skip_on_cran()
+  vcr::use_cassette("wm_classification", {
+    aa <- wm_classification(id = 105706)
 
-  aa <- wm_classification(id = 105706)
-
-  expect_is(aa, "tbl_df")
-  expect_is(aa, "data.frame")
-  expect_named(aa, c('AphiaID', 'rank', 'scientificname'))
+    expect_is(aa, "tbl_df")
+    expect_is(aa, "data.frame")
+    expect_named(aa, c('AphiaID', 'rank', 'scientificname'))
+  })
 })
 
 test_that("wm_classification fails well", {
@@ -15,29 +15,28 @@ test_that("wm_classification fails well", {
 
   expect_error(wm_classification(), "argument \"id\" is missing")
   expect_error(wm_classification("asdfafasdfs"), "id must be of class")
-
-  bb <- wm_classification(23424234)
-  expect_equal(NROW(bb), 0)
-  expect_equal(length(names(bb)), 0)
+  expect_error(wm_classification(23424234), "No Content")
 })
 
 
 context("wm_classification - plural")
 
 test_that("wm_classification_ works", {
-  skip_on_cran()
-
   # singular works
-  aa <- wm_classification_(id = 105706)
-  expect_is(aa, "tbl_df")
-  expect_is(aa, "data.frame")
-  expect_named(aa, c('id', 'AphiaID', 'rank', 'scientificname'))
+  vcr::use_cassette("wm_classification_", {
+    aa <- wm_classification_(id = 105706)
+    expect_is(aa, "tbl_df")
+    expect_is(aa, "data.frame")
+    expect_named(aa, c('id', 'AphiaID', 'rank', 'scientificname'))
+  })
 
   # many works
-  bb <- wm_classification_(id = c(254967, 344089))
-  expect_is(bb, "tbl_df")
-  expect_is(bb, "data.frame")
-  expect_named(bb, c('id', 'AphiaID', 'rank', 'scientificname'))
+  vcr::use_cassette("wm_classification_many", {
+    bb <- wm_classification_(id = c(254967, 344089))
+    expect_is(bb, "tbl_df")
+    expect_is(bb, "data.frame")
+    expect_named(bb, c('id', 'AphiaID', 'rank', 'scientificname'))
+  }, record = "all")
 })
 
 test_that("wm_classification_ fails well", {
