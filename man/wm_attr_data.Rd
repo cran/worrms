@@ -11,13 +11,13 @@ wm_attr_data_(id = NULL, name = NULL, ...)
 }
 \arguments{
 \item{id}{(numeric/integer) an AphiaID. For \code{wm_attr_data} it's
-required and must be \code{length(id) = 1}, for \code{wm_attr_data_} it's
+required and must be \code{length(id) == 1}, for \code{wm_attr_data_} it's
 optional and can be \code{length(id) >= 1}}
 
 \item{include_inherited}{(logical) Include attributes inherited from
 its parent taxon. Default: \code{FALSE}}
 
-\item{...}{named curl options. see \code{\link[curl]{curl_options}}}
+\item{...}{named curl options. see \code{curl::curl_options}}
 
 \item{name}{(character) one or more taxonomic names. optional}
 }

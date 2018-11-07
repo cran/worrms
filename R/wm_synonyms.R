@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param id (numeric/integer) an AphiaID. For `wm_synonyms` it's required
-#' and must be `length(id) = 1`, for `wm_synonyms_` it's optional and
+#' and must be `length(id) == 1`, for `wm_synonyms_` it's optional and
 #' can be `length(id) >= 1`
 #' @param name (character) one or more taxonomic names. optional
 #' @template curl
@@ -16,6 +16,7 @@
 #' }
 wm_synonyms <- function(id, ...) {
   assert(id, c("numeric", "integer"))
+  assert_len(id, 1)
   wm_GET(file.path(wm_base(), "AphiaSynonymsByAphiaID", id), ...)
 }
 
@@ -23,5 +24,5 @@ wm_synonyms <- function(id, ...) {
 #' @rdname wm_synonyms
 wm_synonyms_ <- function(id = NULL, name = NULL, ...) {
   id <- id_name(id, name)
-  run_bind(id, wm_synonyms, ...)
+  run_bind(id, wm_synonyms, on_error = warning, ...)
 }

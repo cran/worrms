@@ -4,7 +4,8 @@
 \alias{wm_records_name}
 \title{Get records by single name, optional fuzzy matching}
 \usage{
-wm_records_name(name, fuzzy = TRUE, marine_only = TRUE, offset = 1, ...)
+wm_records_name(name, fuzzy = TRUE, marine_only = TRUE, offset = 1,
+  ...)
 }
 \arguments{
 \item{name}{(character) a taxonomic name, required.}
@@ -15,7 +16,7 @@ wm_records_name(name, fuzzy = TRUE, marine_only = TRUE, offset = 1, ...)
 
 \item{offset}{(integer) record to start at. default: 1}
 
-\item{...}{named curl options. see \code{\link[curl]{curl_options}}}
+\item{...}{named curl options. see \code{curl::curl_options}}
 }
 \value{
 A tibble/data.frame

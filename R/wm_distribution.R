@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param id (numeric/integer) an AphiaID. For `wm_distribution` it's
-#' required and must be `length(id) = 1`, for `wm_distribution_` it's
+#' required and must be `length(id) == 1`, for `wm_distribution_` it's
 #' optional and can be `length(id) >= 1`
 #' @param name (character) one or more taxonomic names. optional
 #' @template curl
@@ -17,6 +17,7 @@
 #' }
 wm_distribution <- function(id, ...) {
   assert(id, c("numeric", "integer"))
+  assert_len(id, 1)
   wm_GET(file.path(wm_base(), "AphiaDistributionsByAphiaID", id), ...)
 }
 
@@ -24,5 +25,5 @@ wm_distribution <- function(id, ...) {
 #' @rdname wm_distribution
 wm_distribution_ <- function(id = NULL, name = NULL, ...) {
   id <- id_name(id, name)
-  run_bind(id, wm_distribution, ...)
+  run_bind(id, wm_distribution, on_error = warning, ...)
 }

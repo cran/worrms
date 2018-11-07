@@ -11,10 +11,10 @@ wm_name2id_(name, ...)
 }
 \arguments{
 \item{name}{(character) a taxonomic name, required. For
-\code{wm_name2id} must be \code{length(id) = 1}, but for \code{wm_name2id_}
-can be \code{length(id) >= 1}}
+\code{wm_name2id} must be \code{length(name) == 1}, but for \code{wm_name2id_}
+can be \code{length(name) >= 1}}
 
-\item{...}{named curl options. see \code{\link[curl]{curl_options}}}
+\item{...}{named curl options. see \code{curl::curl_options}}
 }
 \value{
 An integer that is the AphiaID. When using underscore method,

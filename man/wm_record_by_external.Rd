@@ -11,13 +11,13 @@ wm_record_by_external_(id = NULL, name = NULL, type = "tsn", ...)
 }
 \arguments{
 \item{id}{(numeric/integer) an AphiaID. For \code{wm_record_by_external}
-it's required and must be \code{length(id) = 1}, for
+it's required and must be \code{length(id) == 1}, for
 \code{wm_record_by_external_} it's optional and can be \code{length(id) >= 1}}
 
 \item{type}{(character) the type of external id. one of: tsn, bold,
 dyntaxa, eol, fishbase, iucn, lsid, ncbi, gisd. default: tsn}
 
-\item{...}{named curl options. see \code{\link[curl]{curl_options}}}
+\item{...}{named curl options. see \code{curl::curl_options}}
 
 \item{name}{(character) one or more taxonomic names. optional}
 }

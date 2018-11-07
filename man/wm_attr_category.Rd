@@ -11,10 +11,10 @@ wm_attr_category_(id = NULL, name = NULL, ...)
 }
 \arguments{
 \item{id}{(numeric/integer) a CategoryID. For \code{wm_attr_category} it's
-required and must be \code{length(id) = 1}, for \code{wm_attr_category_} it's
+required and must be \code{length(id) == 1}, for \code{wm_attr_category_} it's
 optional and can be \code{length(id) >= 1}}
 
-\item{...}{named curl options. see \code{\link[curl]{curl_options}}}
+\item{...}{named curl options. see \code{curl::curl_options}}
 
 \item{name}{(character) one or more taxonomic names. optional}
 }

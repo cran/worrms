@@ -2,8 +2,8 @@
 #'
 #' @export
 #' @param name (character) a species common name. required. For
-#' `wm_records_common` must be `length(id) = 1`; for `wm_records_common_`
-#' can be `length(id) >= 1`
+#' `wm_records_common` must be `length(name) == 1`; for `wm_records_common_`
+#' can be `length(name) >= 1`
 #' @param fuzzy (logical) fuzzy search. default: `FALSE`
 #' @param offset (integer) record to start at. default: 1
 #' @template curl
@@ -24,6 +24,7 @@ wm_records_common <- function(name, fuzzy = FALSE, offset = 1,
   assert(name, "character")
   assert(fuzzy, "logical")
   assert(offset, c('numeric', 'integer'))
+  assert_len(name, 1)
 
   if (length(name) > 1) stop("'name' must be of length 1", call. = FALSE)
   args <- cc(list(
@@ -37,5 +38,6 @@ wm_records_common <- function(name, fuzzy = FALSE, offset = 1,
 #' @export
 #' @rdname wm_records_common
 wm_records_common_ <- function(name, fuzzy = FALSE, offset = 1, ...) {
-  run_bind(name, wm_records_common, fuzzy = fuzzy, offset = offset, ...)
+  run_bind(name, wm_records_common, fuzzy = fuzzy, offset = offset, 
+    on_error = warning, ...)
 }

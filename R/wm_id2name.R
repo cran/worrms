@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param id (numeric/integer) an AphiaID, required. For `wm_id2name`
-#' must be `length(id) = 1`, but for `wm_id2name_` can be
+#' must be `length(id) == 1`, but for `wm_id2name_` can be
 #' `length(id) >= 1`
 #' @template curl
 #' @template plural
@@ -21,5 +21,5 @@ wm_id2name <- function(id, ...) {
 #' @rdname wm_id2name
 wm_id2name_ <- function(id, ...) {
   id <- id_name(id, NULL)
-  run_c(id, wm_id2name, ...)
+  run_c(id, wm_id2name, on_error = warning, ...)
 }

@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param id (numeric/integer) an attribute ID. For `wm_attr_def` it's
-#' required and must be `length(id) = 1`, for `wm_attr_def_` it's
+#' required and must be `length(id) == 1`, for `wm_attr_def_` it's
 #' optional and can be `length(id) >= 1`
 #' @param name (character) one or more taxonomic names. optional
 #' @param include_inherited (logical) Include attributes inherited from
@@ -21,6 +21,7 @@
 wm_attr_def <- function(id, include_inherited = FALSE, ...) {
   assert(id, c("numeric", "integer"))
   assert(include_inherited, "logical")
+  assert_len(id, 1)
   wm_GET(file.path(wm_base(), "AphiaAttributeKeysByID", id),
   	query = cc(list(include_inherited = include_inherited)), ...)
 }
@@ -29,5 +30,5 @@ wm_attr_def <- function(id, include_inherited = FALSE, ...) {
 #' @rdname wm_attr_def
 wm_attr_def_ <- function(id = NULL, name = NULL, ...) {
   id <- id_name(id, name)
-  run_bind(id, wm_attr_def, ...)
+  run_bind(id, wm_attr_def, on_error = warning, ...)
 }

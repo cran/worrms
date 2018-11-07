@@ -11,10 +11,10 @@ wm_common_id_(id = NULL, name = NULL, ...)
 }
 \arguments{
 \item{id}{(numeric/integer) an AphiaID. For \code{wm_common_id} it's
-required and must be \code{length(id) = 1}, for \code{wm_common_id_} it's
+required and must be \code{length(id) == 1}, for \code{wm_common_id_} it's
 optional and can be \code{length(id) >= 1}}
 
-\item{...}{named curl options. see \code{\link[curl]{curl_options}}}
+\item{...}{named curl options. see \code{curl::curl_options}}
 
 \item{name}{(character) one or more taxonomic names. optional}
 }
