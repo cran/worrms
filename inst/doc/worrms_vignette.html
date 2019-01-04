@@ -211,6 +211,9 @@ hr {
 
 <p><code>worrms</code> is an R client for the <a href="http://www.marinespecies.org/">World Register of Marine Species</a>.</p>
 
+<p>See the <a href="https://ropensci.github.io/taxize-book/">taxize book</a> for taxonomically focused work
+in this and similar packages.</p>
+
 <h2>Install</h2>
 
 <p>Stable version from CRAN</p>
@@ -236,7 +239,7 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 <pre><code class="r">wm_records_date(&#39;2016-12-23T05:59:45+00:00&#39;)
 #&gt; # A tibble: 50 x 25
 #&gt;    AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;  *   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
+#&gt;      &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
 #&gt;  1  894302 http… Paleopolymorp… Vasilenk… accep… NA             Spec…
 #&gt;  2  894296 http… Parapachyphlo… Miklukho… accep… NA             Spec…
 #&gt;  3  894298 http… Parapachyphlo… Miklukho… accep… NA             Spec…
@@ -244,10 +247,10 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 #&gt;  5  894299 http… Parafissurina… Petri, 1… accep… NA             Spec…
 #&gt;  6  894297 http… Parapachyphlo… Miklukho… accep… NA             Spec…
 #&gt;  7  894303 http… Anomalina nod… Terquem,… accep… NA             Spec…
-#&gt;  8  911383 http… Conorbina mio… Krasheni… accep… NA             Spec…
-#&gt;  9  924662 http… Oolina virgula Terquem,… accep… NA             Spec…
-#&gt; 10  908243 http… Linderina kol… Singh, 1… accep… NA             Spec…
-#&gt; # ... with 40 more rows, and 18 more variables: valid_AphiaID &lt;int&gt;,
+#&gt;  8  908243 http… Linderina kol… Singh, 1… accep… NA             Spec…
+#&gt;  9  901296 http… Pseudoreichel… Ueno, 19… accep… NA             Spec…
+#&gt; 10  901957 http… Gaudryinella … Moullade… accep… NA             Spec…
+#&gt; # … with 40 more rows, and 18 more variables: valid_AphiaID &lt;int&gt;,
 #&gt; #   valid_name &lt;chr&gt;, valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;,
 #&gt; #   class &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;,
 #&gt; #   lsid &lt;chr&gt;, isMarine &lt;int&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;,
@@ -259,11 +262,11 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 <pre><code class="r">wm_records_name(name = &#39;Platanista gangetica&#39;)
 #&gt; # A tibble: 3 x 25
 #&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt; *   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
 #&gt; 1  254967 http… Platanista ga… (Lebeck,… accep… NA             Spec…
 #&gt; 2  383571 http… Platanista ga… Roxburgh… accep… NA             Subs…
 #&gt; 3  254969 http… Platanista ga… Owen, 18… accep… NA             Subs…
-#&gt; # ... with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
+#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
 #&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
 #&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
 #&gt; #   isMarine &lt;int&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;int&gt;,
@@ -276,9 +279,9 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 #&gt; [[1]]
 #&gt; # A tibble: 1 x 25
 #&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt; *   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
 #&gt; 1  254967 http… Platanista ga… (Lebeck,… accep… NA             Spec…
-#&gt; # ... with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
+#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
 #&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
 #&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
 #&gt; #   isMarine &lt;lgl&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;int&gt;,
@@ -287,10 +290,10 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 #&gt; [[2]]
 #&gt; # A tibble: 2 x 25
 #&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt; *   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;
 #&gt; 1  125960 http… Coryphaena     Linnaeus… accep… &lt;NA&gt;           Genus
 #&gt; 2  843430 &lt;NA&gt;  &lt;NA&gt;           &lt;NA&gt;      quara… synonym        &lt;NA&gt; 
-#&gt; # ... with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
+#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
 #&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
 #&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
 #&gt; #   isMarine &lt;int&gt;, isBrackish &lt;int&gt;, isFreshwater &lt;int&gt;,
@@ -300,12 +303,14 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 <p>by common name</p>
 
 <pre><code class="r">wm_records_common(name = &#39;clam&#39;)
-#&gt; # A tibble: 2 x 25
+#&gt; # A tibble: 4 x 25
 #&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt; *   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
 #&gt; 1  141919 http… Mercenaria me… (Linnaeu… accep… NA             Spec…
-#&gt; 2  141936 http… Venus verruco… Linnaeus… accep… NA             Spec…
-#&gt; # ... with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
+#&gt; 2  140431 http… Mya truncata   Linnaeus… accep… NA             Spec…
+#&gt; 3  141936 http… Venus verruco… Linnaeus… accep… NA             Spec…
+#&gt; 4  575771 http… Verpa penis    (Linnaeu… accep… NA             Spec…
+#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
 #&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
 #&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
 #&gt; #   isMarine &lt;int&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;,
@@ -318,9 +323,9 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 #&gt; [[1]]
 #&gt; # A tibble: 1 x 25
 #&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt; *   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
 #&gt; 1  254967 http… Platanista ga… (Lebeck,… accep… NA             Spec…
-#&gt; # ... with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
+#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
 #&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
 #&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
 #&gt; #   isMarine &lt;lgl&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;int&gt;,
@@ -350,7 +355,7 @@ wm_external(id = 105706)
 <pre><code class="r">wm_common_id(id = 156806)
 #&gt; # A tibble: 2 x 3
 #&gt;   vernacular          language_code language
-#&gt; * &lt;chr&gt;               &lt;chr&gt;         &lt;chr&gt;   
+#&gt;   &lt;chr&gt;               &lt;chr&gt;         &lt;chr&gt;   
 #&gt; 1 gilded wedgeclam    eng           English 
 #&gt; 2 Turton&#39;s wedge clam eng           English
 </code></pre>
@@ -362,7 +367,7 @@ wm_external(id = 105706)
 <pre><code class="r">wm_classification(id = 105706)
 #&gt; # A tibble: 11 x 3
 #&gt;    AphiaID rank       scientificname  
-#&gt;  *   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;           
+#&gt;      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;           
 #&gt;  1       2 Kingdom    Animalia        
 #&gt;  2    1821 Phylum     Chordata        
 #&gt;  3  146419 Subphylum  Vertebrata      
@@ -383,7 +388,7 @@ wm_external(id = 105706)
 <pre><code class="r">wm_classification(id = 105706)
 #&gt; # A tibble: 11 x 3
 #&gt;    AphiaID rank       scientificname  
-#&gt;  *   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;           
+#&gt;      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;           
 #&gt;  1       2 Kingdom    Animalia        
 #&gt;  2    1821 Phylum     Chordata        
 #&gt;  3  146419 Subphylum  Vertebrata      
@@ -404,9 +409,9 @@ wm_external(id = 105706)
 <pre><code class="r">wm_synonyms(id = 105706)
 #&gt; # A tibble: 1 x 25
 #&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt; *   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;
 #&gt; 1  148832 http… Rhiniodontidae Müller &amp;… unacc… synonym        Fami…
-#&gt; # ... with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
+#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
 #&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
 #&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;lgl&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
 #&gt; #   isMarine &lt;lgl&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;,

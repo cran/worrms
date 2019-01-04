@@ -1,7 +1,7 @@
-1d6b2598cbe48c4f2174746639789216 *DESCRIPTION
-1b96a74f7e95cf508e814ad0c04525e5 *LICENSE
+2bb02311cbdc7820e1f7541cbb64ea76 *DESCRIPTION
+de9532c5aeb8082a5fc9cbee02186d6f *LICENSE
 c3cee4ed9d64f54ae2bfbede023a483a *NAMESPACE
-e3e6276e8b9bed1926b566c566033c8b *NEWS.md
+a8df33072aeff092013d8bbc174eaa66 *NEWS.md
 b2cd2e3f673c873ce64bcb4263b5b1b0 *R/wm_attr_aphia.R
 7ee559b9efe9297e628326e3864501cb *R/wm_attr_category.R
 54c2065c23ecf2d0d870d20e9ab90445 *R/wm_attr_data.R
@@ -24,10 +24,10 @@ b684747919b31da6f54594d1dcf26bf4 *R/wm_sources.R
 080afc478e505496a49465524cbc436b *R/wm_synonyms.R
 83ed3219fe18d32688329a3f08525ae3 *R/worrms-package.R
 9763d7f7a1684b057986ee02de48cfce *R/zzz.R
-bbafe806d0e38e372134eedbb30216bc *README.md
-c3e0f3d256be231ee0a5989c9b7a508f *build/vignette.rds
-d1120d940048ee48432d0a8dc778fa69 *inst/doc/worrms_vignette.Rmd
-eeeb9e28c708978e74618604c351a4bc *inst/doc/worrms_vignette.html
+66d919c639a32f26df33337ceb6fc7ef *README.md
+4c1b7784d6d4d371ba7f6ab3a2a344b2 *build/vignette.rds
+8f819bd66654c13622e011179d44f9d5 *inst/doc/worrms_vignette.Rmd
+4176f5049f8266b98994d1ef602393e7 *inst/doc/worrms_vignette.html
 9c0abd2b23f30962b742c4916dfcee2c *man/wm_attr_aphia.Rd
 f2e06537c4f5eeab9a925cb0428ecf81 *man/wm_attr_category.Rd
 f03ece080a32dd7c8b0d08e0af201aae *man/wm_attr_data.Rd
@@ -88,7 +88,6 @@ e923612d0dc8378533f440f5b6655985 *tests/fixtures/vcr_cassettes/wm_record_by_exte
 1cfdac4244890dbec2187e0afbf1e018 *tests/fixtures/vcr_cassettes/wm_records_common_fuzzy_false.yml
 625b7dce8513b05da858b44ca58b2499 *tests/fixtures/vcr_cassettes/wm_records_common_fuzzy_true.yml
 9ec0b59db568b6dac5d5300b5998b3ed *tests/fixtures/vcr_cassettes/wm_records_common_offset.yml
-1656b817739237c0c709250baf2940a9 *tests/fixtures/vcr_cassettes/wm_records_date.yml
 3b330bfe446f9994298e673b7c171f80 *tests/fixtures/vcr_cassettes/wm_records_name.yml
 56f7cf22e85730e5f0a8626f474bb15a *tests/fixtures/vcr_cassettes/wm_records_name_fuzzy.yml
 a89690daa8c6e8a9a333a0dffec9563e *tests/fixtures/vcr_cassettes/wm_records_names.yml
@@ -99,7 +98,7 @@ b953dc2936e545f18a0772796b1eea64 *tests/fixtures/vcr_cassettes/wm_sources.yml
 6b6a69d631c80fac670e76f4a9adeb1e *tests/fixtures/vcr_cassettes/wm_synonyms.yml
 fbe6c87e5419dde08310cd8d5cbdd8d9 *tests/fixtures/vcr_cassettes/wm_synonyms__many.yml
 8c7030aa348e0a2b9cb58ff224192b05 *tests/test-all.R
-812d8050edcd72ee4bae66975a83d829 *tests/testthat/helper-worrms.R
+83542461bcac3406b892bdf30421bef0 *tests/testthat/helper-worrms.R
 d6c633fb1c997d8cc164e5a77bd52c79 *tests/testthat/test-wm_children.R
 6d34e8a415c5de5aa71ab69511d68508 *tests/testthat/test-wm_classification.R
 3caf8b08f6f454f664af89f66ca6a55f *tests/testthat/test-wm_common_id.R
@@ -110,10 +109,10 @@ f08cb38e7eac086652b644bbd21a1c1e *tests/testthat/test-wm_name2id.R
 80beeb3d5fa15550695e23d64d3733ca *tests/testthat/test-wm_record.R
 da991deea4da3516722cfe4d76444064 *tests/testthat/test-wm_record_by_external.R
 00d32bc93219214b8d86a3d595e9810d *tests/testthat/test-wm_records_common.R
-ba4cf8474ce59c00d128a55ca39e7a16 *tests/testthat/test-wm_records_date.R
+fd42948180002d0ad509a1b0556f2084 *tests/testthat/test-wm_records_date.R
 b2a0340db6d60675d94ca945dab01758 *tests/testthat/test-wm_records_name.R
 08302fe2ef05dbad128f3dd9c0635d67 *tests/testthat/test-wm_records_names.R
 ace7800136cb246fcc6b5bb48bd82548 *tests/testthat/test-wm_records_taxamatch.R
 13973bbda2c5e354a4e02a4f9c548d29 *tests/testthat/test-wm_sources.R
 77b088fe3ec4c6db121bcb990ef07e29 *tests/testthat/test-wm_synonyms.R
-d1120d940048ee48432d0a8dc778fa69 *vignettes/worrms_vignette.Rmd
+8f819bd66654c13622e011179d44f9d5 *vignettes/worrms_vignette.Rmd
