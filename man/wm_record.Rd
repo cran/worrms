@@ -25,6 +25,9 @@ by the input ID, and can be separated by the list names
 \description{
 Get complete AphiaRecord for an AphiaID
 }
+\note{
+\code{wm_record_} is defunct, \code{wm_record} can do plural requests now
+}
 \section{Singular vs. plural}{
 
 Of the two sister functions, the one without the underscore is the original
@@ -41,6 +44,7 @@ parse output by your inputs.
 \examples{
 \dontrun{
 wm_record(id = 105706)
+wm_record(id = c(105706, 126436))
 wm_record_(id = c(105706, 126436))
 }
 }

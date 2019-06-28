@@ -211,7 +211,7 @@ hr {
 
 <p><code>worrms</code> is an R client for the <a href="http://www.marinespecies.org/">World Register of Marine Species</a>.</p>
 
-<p>See the <a href="https://ropensci.github.io/taxize-book/">taxize book</a> for taxonomically focused work
+<p>See the <a href="https://ropenscilabs.github.io/taxize-book/">taxize book</a> for taxonomically focused work
 in this and similar packages.</p>
 
 <h2>Install</h2>
@@ -237,99 +237,75 @@ devtools::install_github(&quot;ropensci/worrms&quot;)
 <p>by date</p>
 
 <pre><code class="r">wm_records_date(&#39;2016-12-23T05:59:45+00:00&#39;)
-#&gt; # A tibble: 50 x 25
-#&gt;    AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;      &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
-#&gt;  1  894302 http… Paleopolymorp… Vasilenk… accep… NA             Spec…
-#&gt;  2  894296 http… Parapachyphlo… Miklukho… accep… NA             Spec…
-#&gt;  3  894298 http… Parapachyphlo… Miklukho… accep… NA             Spec…
-#&gt;  4  894301 http… Ovulina radia… Seguenza… accep… NA             Spec…
-#&gt;  5  894299 http… Parafissurina… Petri, 1… accep… NA             Spec…
-#&gt;  6  894297 http… Parapachyphlo… Miklukho… accep… NA             Spec…
-#&gt;  7  894303 http… Anomalina nod… Terquem,… accep… NA             Spec…
-#&gt;  8  908243 http… Linderina kol… Singh, 1… accep… NA             Spec…
-#&gt;  9  901296 http… Pseudoreichel… Ueno, 19… accep… NA             Spec…
-#&gt; 10  901957 http… Gaudryinella … Moullade… accep… NA             Spec…
-#&gt; # … with 40 more rows, and 18 more variables: valid_AphiaID &lt;int&gt;,
-#&gt; #   valid_name &lt;chr&gt;, valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;,
-#&gt; #   class &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;,
-#&gt; #   lsid &lt;chr&gt;, isMarine &lt;int&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;,
+#&gt; # A tibble: 50 x 27
+#&gt;    AphiaID url   scientificname authority status unacceptreason taxonRankID
+#&gt;      &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;                &lt;int&gt;
+#&gt;  1  894302 http… Paleopolymorp… Vasilenk… accep… NA                     220
+#&gt;  2  894296 http… Parapachyphlo… Miklukho… accep… NA                     220
+#&gt;  3  894298 http… Parapachyphlo… Miklukho… accep… NA                     220
+#&gt;  4  894301 http… Ovulina radia… Seguenza… accep… NA                     220
+#&gt;  5  894299 http… Parafissurina… Petri, 1… accep… NA                     220
+#&gt;  6  894297 http… Parapachyphlo… Miklukho… accep… NA                     220
+#&gt;  7  894303 http… Anomalina nod… Terquem,… accep… NA                     220
+#&gt;  8  901957 http… Gaudryinella … Moullade… accep… NA                     220
+#&gt;  9  916899 http… Gavelinella p… Porthaul… accep… NA                     220
+#&gt; 10  902959 http… Valvulineria … Kicinski… accep… NA                     220
+#&gt; # … with 40 more rows, and 20 more variables: rank &lt;chr&gt;,
+#&gt; #   valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;, valid_authority &lt;chr&gt;,
+#&gt; #   parentNameUsageID &lt;int&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
+#&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
+#&gt; #   isMarine &lt;int&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;,
 #&gt; #   isTerrestrial &lt;lgl&gt;, isExtinct &lt;int&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
 </code></pre>
 
 <p>by a taxonomic name</p>
 
 <pre><code class="r">wm_records_name(name = &#39;Platanista gangetica&#39;)
-#&gt; # A tibble: 3 x 25
-#&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
-#&gt; 1  254967 http… Platanista ga… (Lebeck,… accep… NA             Spec…
-#&gt; 2  383571 http… Platanista ga… Roxburgh… accep… NA             Subs…
-#&gt; 3  254969 http… Platanista ga… Owen, 18… accep… NA             Subs…
-#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
-#&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
-#&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
-#&gt; #   isMarine &lt;int&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;int&gt;,
-#&gt; #   isTerrestrial &lt;int&gt;, isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
+#&gt; Error: (204) No Content - Platanista gangetica
 </code></pre>
 
 <p>by many names</p>
 
 <pre><code class="r">wm_records_names(name = c(&#39;Platanista gangetica&#39;, &#39;Coryphaena&#39;))
 #&gt; [[1]]
-#&gt; # A tibble: 1 x 25
-#&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
-#&gt; 1  254967 http… Platanista ga… (Lebeck,… accep… NA             Spec…
-#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
-#&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
-#&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
-#&gt; #   isMarine &lt;lgl&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;int&gt;,
-#&gt; #   isTerrestrial &lt;lgl&gt;, isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
+#&gt; # A tibble: 0 x 0
 #&gt; 
 #&gt; [[2]]
-#&gt; # A tibble: 2 x 25
-#&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;
-#&gt; 1  125960 http… Coryphaena     Linnaeus… accep… &lt;NA&gt;           Genus
-#&gt; 2  843430 &lt;NA&gt;  &lt;NA&gt;           &lt;NA&gt;      quara… synonym        &lt;NA&gt; 
-#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
-#&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
-#&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
-#&gt; #   isMarine &lt;int&gt;, isBrackish &lt;int&gt;, isFreshwater &lt;int&gt;,
-#&gt; #   isTerrestrial &lt;int&gt;, isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
+#&gt; # A tibble: 2 x 27
+#&gt;   AphiaID url   scientificname authority status unacceptreason taxonRankID
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                &lt;int&gt;
+#&gt; 1  125960 http… Coryphaena     Linnaeus… accep… &lt;NA&gt;                   180
+#&gt; 2  843430 &lt;NA&gt;  &lt;NA&gt;           &lt;NA&gt;      quara… synonym                 NA
+#&gt; # … with 20 more variables: rank &lt;chr&gt;, valid_AphiaID &lt;int&gt;,
+#&gt; #   valid_name &lt;chr&gt;, valid_authority &lt;chr&gt;, parentNameUsageID &lt;int&gt;,
+#&gt; #   kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;,
+#&gt; #   genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;, isMarine &lt;int&gt;,
+#&gt; #   isBrackish &lt;int&gt;, isFreshwater &lt;int&gt;, isTerrestrial &lt;int&gt;,
+#&gt; #   isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
 </code></pre>
 
 <p>by common name</p>
 
 <pre><code class="r">wm_records_common(name = &#39;clam&#39;)
-#&gt; # A tibble: 4 x 25
-#&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
-#&gt; 1  141919 http… Mercenaria me… (Linnaeu… accep… NA             Spec…
-#&gt; 2  140431 http… Mya truncata   Linnaeus… accep… NA             Spec…
-#&gt; 3  141936 http… Venus verruco… Linnaeus… accep… NA             Spec…
-#&gt; 4  575771 http… Verpa penis    (Linnaeu… accep… NA             Spec…
-#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
-#&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
-#&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
-#&gt; #   isMarine &lt;int&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;,
-#&gt; #   isTerrestrial &lt;lgl&gt;, isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
+#&gt; # A tibble: 4 x 27
+#&gt;   AphiaID url   scientificname authority status unacceptreason taxonRankID
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;                &lt;int&gt;
+#&gt; 1  141919 http… Mercenaria me… (Linnaeu… accep… NA                     220
+#&gt; 2  140431 http… Mya truncata   Linnaeus… accep… NA                     220
+#&gt; 3  141936 http… Venus verruco… Linnaeus… accep… NA                     220
+#&gt; 4  575771 http… Verpa penis    (Linnaeu… accep… NA                     220
+#&gt; # … with 20 more variables: rank &lt;chr&gt;, valid_AphiaID &lt;int&gt;,
+#&gt; #   valid_name &lt;chr&gt;, valid_authority &lt;chr&gt;, parentNameUsageID &lt;int&gt;,
+#&gt; #   kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;,
+#&gt; #   genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;, isMarine &lt;int&gt;,
+#&gt; #   isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;, isTerrestrial &lt;lgl&gt;,
+#&gt; #   isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
 </code></pre>
 
 <p>using the TAXMATCH algorithm</p>
 
 <pre><code class="r">wm_records_taxamatch(name = &#39;Platanista gangetica&#39;)
-#&gt; [[1]]
-#&gt; # A tibble: 1 x 25
-#&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;lgl&gt;          &lt;chr&gt;
-#&gt; 1  254967 http… Platanista ga… (Lebeck,… accep… NA             Spec…
-#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
-#&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
-#&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
-#&gt; #   isMarine &lt;lgl&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;int&gt;,
-#&gt; #   isTerrestrial &lt;lgl&gt;, isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
+#&gt; Error: (204) No Content - AphiaRecordsByMatchNames
 </code></pre>
 
 <h2>APHIA ID &lt;&ndash;&gt; name</h2>
@@ -407,15 +383,16 @@ wm_external(id = 105706)
 <p>Get synonyms for an AphiaID</p>
 
 <pre><code class="r">wm_synonyms(id = 105706)
-#&gt; # A tibble: 1 x 25
-#&gt;   AphiaID url   scientificname authority status unacceptreason rank 
-#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;
-#&gt; 1  148832 http… Rhiniodontidae Müller &amp;… unacc… synonym        Fami…
-#&gt; # … with 18 more variables: valid_AphiaID &lt;int&gt;, valid_name &lt;chr&gt;,
-#&gt; #   valid_authority &lt;chr&gt;, kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;,
-#&gt; #   order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;lgl&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;,
-#&gt; #   isMarine &lt;lgl&gt;, isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;,
-#&gt; #   isTerrestrial &lt;lgl&gt;, isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
+#&gt; # A tibble: 1 x 27
+#&gt;   AphiaID url   scientificname authority status unacceptreason taxonRankID
+#&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                &lt;int&gt;
+#&gt; 1  148832 http… Rhiniodontidae Müller &amp;… unacc… synonym                140
+#&gt; # … with 20 more variables: rank &lt;chr&gt;, valid_AphiaID &lt;int&gt;,
+#&gt; #   valid_name &lt;chr&gt;, valid_authority &lt;chr&gt;, parentNameUsageID &lt;int&gt;,
+#&gt; #   kingdom &lt;chr&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;,
+#&gt; #   genus &lt;lgl&gt;, citation &lt;chr&gt;, lsid &lt;chr&gt;, isMarine &lt;lgl&gt;,
+#&gt; #   isBrackish &lt;lgl&gt;, isFreshwater &lt;lgl&gt;, isTerrestrial &lt;lgl&gt;,
+#&gt; #   isExtinct &lt;lgl&gt;, match_type &lt;chr&gt;, modified &lt;chr&gt;
 </code></pre>
 
 </body>
