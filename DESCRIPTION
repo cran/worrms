@@ -7,12 +7,14 @@ Description: Client for World Register of Marine Species
     common names, searching using external identifiers, fetching
     synonyms, as well as fetching taxonomic children and
     taxonomic classification.
-Version: 0.4.0
+Version: 0.4.2
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com",
     comment = c(ORCID = "0000-0003-1444-9135"))
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/worrms
+URL: https://docs.ropensci.org/worrms,
+        https://github.com/ropensci/worrms (devel), https://taxize.dev
+        (user manual)
 BugReports: https://github.com/ropensci/worrms/issues
 LazyData: true
 VignetteBuilder: knitr
@@ -20,15 +22,16 @@ Encoding: UTF-8
 Language: en-US
 Imports: crul (>= 0.6.0), tibble (>= 1.2), jsonlite (>= 1.1),
         data.table
-Suggests: roxygen2 (>= 6.1.1), knitr, testthat, vcr (>= 0.2.0)
-RoxygenNote: 6.1.1
+Suggests: roxygen2 (>= 7.1.0), knitr, rmarkdown, testthat, vcr (>=
+        0.2.0)
+RoxygenNote: 7.1.0
 X-schema.org-applicationCategory: Biology
 X-schema.org-keywords: biology, science, marine, API, web, api-client,
         worms, species
 X-schema.org-isPartOf: https://ropensci.org
 NeedsCompilation: no
-Packaged: 2019-06-27 16:31:43 UTC; sckott
+Packaged: 2020-07-08 00:15:05 UTC; sckott
 Author: Scott Chamberlain [aut, cre] (<https://orcid.org/0000-0003-1444-9135>)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
 Repository: CRAN
-Date/Publication: 2019-06-28 06:00:04 UTC
+Date/Publication: 2020-07-08 06:20:03 UTC

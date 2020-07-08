@@ -4,15 +4,15 @@
 \name{worrms-package}
 \alias{worrms-package}
 \alias{worrms}
-\title{World Register of Marine Species Client}
+\title{worrms}
 \description{
 World Register of Marine Species Client
 }
 \section{Fail behavior}{
 
 The WoRMS REST API doesn't have sophisticated error messaging, so
-most errors will result in a \code{(204) - No Content} or
-in \code{(400) - Bad Request}
+most errors will result in a \verb{(204) - No Content} or
+in \verb{(400) - Bad Request}
 
 Because WoRMS doesn't do comprehensive error reporting, we do a fair
 amount of checking user inputs to help prevent errors that will be
